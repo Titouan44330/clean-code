@@ -25,28 +25,15 @@ public class CompteBancaire {
      */
     private String type;
 
-    /**
-     * @param solde
-     * @param decouvert
-     * @param type
-     */
-    public CompteBancaire(String type, double solde, double decouvert) {
-        super();
-        this.type = type;
-        this.solde = solde;
-        this.decouvert = decouvert;
-    }
-
 
     /**
-     * Ce constructeur est utilisé pour créer un compte de type Livret A
+     * Ce constructeur est utilisé pour créer un compte de type Compte Bancaire
      *
-     * @param type             = LA
+     * @param type             = CC
      * @param solde            représente le solde du compte
      * @param decouvert        représente le découvert autorisé
-     * @param tauxRemuneration représente le taux de rémunération du livret A
      */
-    public CompteBancaire(String type, double solde, double decouvert, double tauxRemuneration) {
+    public CompteBancaire(String type, double solde, double decouvert) {
         super();
         this.type = type;
         this.solde = solde;
@@ -70,7 +57,7 @@ public class CompteBancaire {
      */
     public void debiterMontant(double montant) {
         if (type.equals("CC")) {
-            if (this.solde - montant > decouvert) {
+            if (this.solde - montant < decouvert) {
                 this.solde = solde - montant;
             }
         } else if (type.equals("LA")) {

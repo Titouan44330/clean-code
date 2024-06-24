@@ -5,37 +5,27 @@ import java.util.List;
 public class Zoo {
 
     private String nom;
-    private List<String> types;
-    private List<String> noms;
-    private List<String> comportements;
+    private List<Animal> animaux;
+    private Double taille;
 
     public Zoo(String nom) {
         this.nom = nom;
     }
 
-    public void addAnimal(String nomAnimal, String typeAnimal, String comportement) {
-        types.add(typeAnimal);
-        noms.add(nomAnimal);
-        comportements.add(comportement);
+    public void addUnAnimal(Animal animal) {
+        animaux.add(animal);
     }
 
-    public void afficherListeAnimaux() {
-        for (int i = 0; i < types.size(); i++) {
-            System.out.println(noms.get(i) + " " + types.get(i) + " " + comportements.get(i));
+    public void addListAnimal(List<Animal> animaux) {
+        for(Animal unAnimal : animaux) {
+            animaux.add(unAnimal);
         }
     }
 
-    public int taille() {
-        return types.size();
-    }
-
-    /**
-     * Getter for nom
-     *
-     * @return the nom
-     */
-    public String getNom() {
-        return nom;
+    public void afficherListeAnimaux() {
+        for (Animal unAnimal : animaux) {
+            System.out.println(unAnimal.getNom() + " " + unAnimal.getType() + " " + unAnimal.getComportement());
+        }
     }
 
     /**
@@ -45,5 +35,17 @@ public class Zoo {
      */
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public List<Animal> getAnimaux() {
+        return animaux;
+    }
+
+    public void setAnimaux(List<Animal> animaux) {
+        this.animaux = animaux;
     }
 }

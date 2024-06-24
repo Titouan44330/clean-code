@@ -6,6 +6,7 @@ import java.util.List;
 public class Caisse {
 
     private String nom;
+    private String categorie;
     private List<Item> items;
 
     /**
@@ -13,9 +14,10 @@ public class Caisse {
      *
      * @param nom
      */
-    public Caisse(String nom) {
+    public Caisse(String nom, String categorie) {
         super();
         this.nom = nom;
+        this.categorie = categorie;
         this.items = new ArrayList<>();
     }
 
@@ -55,4 +57,11 @@ public class Caisse {
         this.items = items;
     }
 
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
 }
